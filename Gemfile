@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 
-gem 'mysql2'
+gem 'pg'
 gem 'kaminari'
 gem 'simple_form'
 gem 'paper_trail'
