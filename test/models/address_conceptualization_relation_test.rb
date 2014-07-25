@@ -1,19 +1,19 @@
 require 'test_helper'
 
-class AddressConceptualizationRelationsTest < ActiveSupport::TestCase
+class AddressConceptualizationRelationTest < ActiveSupport::TestCase
   def setup
     @address_conceptualization_relation = Fabricate(:address_conceptualization_relation)
   end
 
   test 'create' do
-    assert_difference ['AddressConceptualizationRelations.count', 'PaperTrail::Version.count'] do
-      AddressConceptualizationRelations.create! Fabricate.attributes_for(:address_conceptualization_relation)
+    assert_difference ['AddressConceptualizationRelation.count', 'PaperTrail::Version.count'] do
+      AddressConceptualizationRelation.create! Fabricate.attributes_for(:address_conceptualization_relation)
     end
   end
 
   test 'update' do
     assert_difference 'PaperTrail::Version.count' do
-      assert_no_difference 'AddressConceptualizationRelations.count' do
+      assert_no_difference 'AddressConceptualizationRelation.count' do
         @address_conceptualization_relation.update!(attr: 'Updated')
       end
     end
@@ -23,7 +23,7 @@ class AddressConceptualizationRelationsTest < ActiveSupport::TestCase
 
   test 'destroy' do
     assert_difference 'PaperTrail::Version.count' do
-      assert_difference('AddressConceptualizationRelations.count', -1) { @address_conceptualization_relation.destroy }
+      assert_difference('AddressConceptualizationRelation.count', -1) { @address_conceptualization_relation.destroy }
     end
   end
 
