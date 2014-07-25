@@ -1,0 +1,2 @@
+module PeopleRelationKindsHelper
+end

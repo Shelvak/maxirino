@@ -1,0 +1,36 @@
+<% if @attach_details.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= AttachDetail.human_attribute_name 'from' %></th>
+        <th><%= AttachDetail.human_attribute_name 'details' %></th>
+        <th><%= AttachDetail.human_attribute_name 'attach_id' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @attach_details.each do |attach_detail| %>
+        <tr>
+          <td><%= attach_detail.from %></td>
+          <td><%= attach_detail.details %></td>
+          <td><%= attach_detail.attach_id %></td>
+          <td><%= link_to_show attach_detail %></td>
+          <td><%= link_to_edit edit_attach_detail_path(attach_detail) if can? :update, attach_detail %></td>
+          <td><%= link_to_destroy attach_detail if can? :destroy, attach_detail %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @attach_details %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.attach_details.new', default: :'label.new'),
+    new_attach_detail_path, class: 'btn btn-primary'
+  ) if can? :create, AttachDetail %>
+</div>

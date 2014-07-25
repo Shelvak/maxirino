@@ -1,0 +1,46 @@
+<% if @person_addresses.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= PersonAddress.human_attribute_name 'person_id' %></th>
+        <th><%= PersonAddress.human_attribute_name 'address_id' %></th>
+        <th><%= PersonAddress.human_attribute_name 'country_id' %></th>
+        <th><%= PersonAddress.human_attribute_name 'province_id' %></th>
+        <th><%= PersonAddress.human_attribute_name 'city_id' %></th>
+        <th><%= PersonAddress.human_attribute_name 'district_id' %></th>
+        <th><%= PersonAddress.human_attribute_name 'street_name' %></th>
+        <th><%= PersonAddress.human_attribute_name 'street_number' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @person_addresses.each do |person_address| %>
+        <tr>
+          <td><%= person_address.person_id %></td>
+          <td><%= person_address.address_id %></td>
+          <td><%= person_address.country_id %></td>
+          <td><%= person_address.province_id %></td>
+          <td><%= person_address.city_id %></td>
+          <td><%= person_address.district_id %></td>
+          <td><%= person_address.street_name %></td>
+          <td><%= person_address.street_number %></td>
+          <td><%= link_to_show person_address %></td>
+          <td><%= link_to_edit edit_person_address_path(person_address) if can? :update, person_address %></td>
+          <td><%= link_to_destroy person_address if can? :destroy, person_address %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @person_addresses %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.person_addresses.new', default: :'label.new'),
+    new_person_address_path, class: 'btn btn-primary'
+  ) if can? :create, PersonAddress %>
+</div>

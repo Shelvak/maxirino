@@ -1,0 +1,11 @@
+<h2><%= @identification_type %></h2>
+
+<p>
+  <strong><%= IdentificationType.human_attribute_name 'name' %></strong>:
+  <%= @identification_type.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_identification_type_path(@identification_type) if can? :update, @identification_type %> |
+  <%= link_to t('label.list'), identification_types_path %>
+</div>

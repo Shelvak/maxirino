@@ -1,0 +1,27 @@
+<h2><%= @address %></h2>
+
+<p>
+  <strong><%= Address.human_attribute_name 'address_type_id' %></strong>:
+  <%= @address.address_type_id %>
+</p>
+<p>
+  <strong><%= Address.human_attribute_name 'number' %></strong>:
+  <%= @address.number %>
+</p>
+<p>
+  <strong><%= Address.human_attribute_name 'between' %></strong>:
+  <%= @address.between %>
+</p>
+<p>
+  <strong><%= Address.human_attribute_name 'street' %></strong>:
+  <%= @address.street %>
+</p>
+<p>
+  <strong><%= Address.human_attribute_name 'notes' %></strong>:
+  <%= @address.notes %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_address_path(@address) if can? :update, @address %> |
+  <%= link_to t('label.list'), addresses_path %>
+</div>

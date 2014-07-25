@@ -1,0 +1,40 @@
+<% if @addresses.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Address.human_attribute_name 'address_type_id' %></th>
+        <th><%= Address.human_attribute_name 'number' %></th>
+        <th><%= Address.human_attribute_name 'between' %></th>
+        <th><%= Address.human_attribute_name 'street' %></th>
+        <th><%= Address.human_attribute_name 'notes' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @addresses.each do |address| %>
+        <tr>
+          <td><%= address.address_type_id %></td>
+          <td><%= address.number %></td>
+          <td><%= address.between %></td>
+          <td><%= address.street %></td>
+          <td><%= address.notes %></td>
+          <td><%= link_to_show address %></td>
+          <td><%= link_to_edit edit_address_path(address) if can? :update, address %></td>
+          <td><%= link_to_destroy address if can? :destroy, address %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @addresses %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.addresses.new', default: :'label.new'),
+    new_address_path, class: 'btn btn-primary'
+  ) if can? :create, Address %>
+</div>

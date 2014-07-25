@@ -1,0 +1,11 @@
+<h2><%= @conceptualization %></h2>
+
+<p>
+  <strong><%= Conceptualization.human_attribute_name 'name' %></strong>:
+  <%= @conceptualization.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_conceptualization_path(@conceptualization) if can? :update, @conceptualization %> |
+  <%= link_to t('label.list'), conceptualizations_path %>
+</div>

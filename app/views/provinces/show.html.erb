@@ -1,0 +1,15 @@
+<h2><%= @province %></h2>
+
+<p>
+  <strong><%= Province.human_attribute_name 'name' %></strong>:
+  <%= @province.name %>
+</p>
+<p>
+  <strong><%= Province.human_attribute_name 'country_id' %></strong>:
+  <%= @province.country_id %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_province_path(@province) if can? :update, @province %> |
+  <%= link_to t('label.list'), provinces_path %>
+</div>

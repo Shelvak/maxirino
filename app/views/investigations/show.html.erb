@@ -1,0 +1,31 @@
+<h2><%= @investigation %></h2>
+
+<p>
+  <strong><%= Investigation.human_attribute_name 'investigation_status_id' %></strong>:
+  <%= @investigation.investigation_status_id %>
+</p>
+<p>
+  <strong><%= Investigation.human_attribute_name 'category_id' %></strong>:
+  <%= @investigation.category_id %>
+</p>
+<p>
+  <strong><%= Investigation.human_attribute_name 'start_date' %></strong>:
+  <%= @investigation.start_date %>
+</p>
+<p>
+  <strong><%= Investigation.human_attribute_name 'end_date' %></strong>:
+  <%= @investigation.end_date %>
+</p>
+<p>
+  <strong><%= Investigation.human_attribute_name 'title' %></strong>:
+  <%= @investigation.title %>
+</p>
+<p>
+  <strong><%= Investigation.human_attribute_name 'detail' %></strong>:
+  <%= @investigation.detail %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_investigation_path(@investigation) if can? :update, @investigation %> |
+  <%= link_to t('label.list'), investigations_path %>
+</div>

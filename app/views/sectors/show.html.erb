@@ -1,0 +1,11 @@
+<h2><%= @sector %></h2>
+
+<p>
+  <strong><%= Sector.human_attribute_name 'name' %></strong>:
+  <%= @sector.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_sector_path(@sector) if can? :update, @sector %> |
+  <%= link_to t('label.list'), sectors_path %>
+</div>

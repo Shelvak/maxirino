@@ -1,0 +1,11 @@
+<h2><%= @investigation_category %></h2>
+
+<p>
+  <strong><%= InvestigationCategory.human_attribute_name 'name' %></strong>:
+  <%= @investigation_category.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_investigation_category_path(@investigation_category) if can? :update, @investigation_category %> |
+  <%= link_to t('label.list'), investigation_categories_path %>
+</div>

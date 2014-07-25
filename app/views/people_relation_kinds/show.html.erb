@@ -1,0 +1,11 @@
+<h2><%= @people_relation_kind %></h2>
+
+<p>
+  <strong><%= PeopleRelationKind.human_attribute_name 'name' %></strong>:
+  <%= @people_relation_kind.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_people_relation_kind_path(@people_relation_kind) if can? :update, @people_relation_kind %> |
+  <%= link_to t('label.list'), people_relation_kinds_path %>
+</div>

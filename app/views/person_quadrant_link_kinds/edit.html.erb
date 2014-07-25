@@ -1,0 +1,6 @@
+<%= content_for :form_actions do %>
+  <%= link_to t('label.show'), @person_quadrant_link_kind %> |
+  <%= link_to t('label.list'), person_quadrant_link_kinds_path %>
+<% end %>
+
+<%= render 'form' %>

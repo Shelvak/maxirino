@@ -1,0 +1,11 @@
+<h2><%= @zone %></h2>
+
+<p>
+  <strong><%= Zone.human_attribute_name 'name' %></strong>:
+  <%= @zone.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_zone_path(@zone) if can? :update, @zone %> |
+  <%= link_to t('label.list'), zones_path %>
+</div>

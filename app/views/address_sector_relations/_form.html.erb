@@ -1,0 +1,19 @@
+<%= simple_form_for(@address_sector_relation) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :address_id %>
+        <%= f.input :sector_id %>
+        <%= f.input :percentage %>
+        <%= f.input :detail %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions well well-sm">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

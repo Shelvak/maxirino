@@ -1,0 +1,32 @@
+<% if @conceptualizations.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Conceptualization.human_attribute_name 'name' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @conceptualizations.each do |conceptualization| %>
+        <tr>
+          <td><%= conceptualization.name %></td>
+          <td><%= link_to_show conceptualization %></td>
+          <td><%= link_to_edit edit_conceptualization_path(conceptualization) if can? :update, conceptualization %></td>
+          <td><%= link_to_destroy conceptualization if can? :destroy, conceptualization %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @conceptualizations %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.conceptualizations.new', default: :'label.new'),
+    new_conceptualization_path, class: 'btn btn-primary'
+  ) if can? :create, Conceptualization %>
+</div>

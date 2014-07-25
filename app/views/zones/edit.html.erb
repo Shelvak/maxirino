@@ -1,0 +1,6 @@
+<%= content_for :form_actions do %>
+  <%= link_to t('label.show'), @zone %> |
+  <%= link_to t('label.list'), zones_path %>
+<% end %>
+
+<%= render 'form' %>

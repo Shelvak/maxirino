@@ -1,0 +1,6 @@
+<%= content_for :form_actions do %>
+  <%= link_to t('label.show'), @phone %> |
+  <%= link_to t('label.list'), phones_path %>
+<% end %>
+
+<%= render 'form' %>

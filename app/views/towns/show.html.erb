@@ -1,0 +1,15 @@
+<h2><%= @town %></h2>
+
+<p>
+  <strong><%= Town.human_attribute_name 'name' %></strong>:
+  <%= @town.name %>
+</p>
+<p>
+  <strong><%= Town.human_attribute_name 'city_id' %></strong>:
+  <%= @town.city_id %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_town_path(@town) if can? :update, @town %> |
+  <%= link_to t('label.list'), towns_path %>
+</div>

@@ -1,0 +1,19 @@
+<h2><%= @phone %></h2>
+
+<p>
+  <strong><%= Phone.human_attribute_name 'person_id' %></strong>:
+  <%= @phone.person_id %>
+</p>
+<p>
+  <strong><%= Phone.human_attribute_name 'phone' %></strong>:
+  <%= @phone.phone %>
+</p>
+<p>
+  <strong><%= Phone.human_attribute_name 'details' %></strong>:
+  <%= @phone.details %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_phone_path(@phone) if can? :update, @phone %> |
+  <%= link_to t('label.list'), phones_path %>
+</div>

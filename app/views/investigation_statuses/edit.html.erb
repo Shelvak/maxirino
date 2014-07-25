@@ -1,0 +1,6 @@
+<%= content_for :form_actions do %>
+  <%= link_to t('label.show'), @investigation_status %> |
+  <%= link_to t('label.list'), investigation_statuses_path %>
+<% end %>
+
+<%= render 'form' %>

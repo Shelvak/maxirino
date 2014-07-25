@@ -1,0 +1,24 @@
+<%= simple_form_for(@person) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :birthday %>
+        <%= f.input :father %>
+        <%= f.input :mother %>
+        <%= f.input :notes %>
+        <%= f.input :record %>
+        <%= f.input :sex %>
+        <%= f.input :alias %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions well well-sm">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h2><%= @investigation_status %></h2>
+
+<p>
+  <strong><%= InvestigationStatus.human_attribute_name 'name' %></strong>:
+  <%= @investigation_status.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_investigation_status_path(@investigation_status) if can? :update, @investigation_status %> |
+  <%= link_to t('label.list'), investigation_statuses_path %>
+</div>

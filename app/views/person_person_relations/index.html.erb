@@ -1,0 +1,40 @@
+<% if @person_person_relations.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= PersonPersonRelation.human_attribute_name 'person_1_id' %></th>
+        <th><%= PersonPersonRelation.human_attribute_name 'person_2_id' %></th>
+        <th><%= PersonPersonRelation.human_attribute_name 'link_type_id' %></th>
+        <th><%= PersonPersonRelation.human_attribute_name 'since_date' %></th>
+        <th><%= PersonPersonRelation.human_attribute_name 'until_date' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @person_person_relations.each do |person_person_relation| %>
+        <tr>
+          <td><%= person_person_relation.person_1_id %></td>
+          <td><%= person_person_relation.person_2_id %></td>
+          <td><%= person_person_relation.link_type_id %></td>
+          <td><%= person_person_relation.since_date %></td>
+          <td><%= person_person_relation.until_date %></td>
+          <td><%= link_to_show person_person_relation %></td>
+          <td><%= link_to_edit edit_person_person_relation_path(person_person_relation) if can? :update, person_person_relation %></td>
+          <td><%= link_to_destroy person_person_relation if can? :destroy, person_person_relation %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @person_person_relations %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.person_person_relations.new', default: :'label.new'),
+    new_person_person_relation_path, class: 'btn btn-primary'
+  ) if can? :create, PersonPersonRelation %>
+</div>

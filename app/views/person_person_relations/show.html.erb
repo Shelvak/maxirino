@@ -1,0 +1,27 @@
+<h2><%= @person_person_relation %></h2>
+
+<p>
+  <strong><%= PersonPersonRelation.human_attribute_name 'person_1_id' %></strong>:
+  <%= @person_person_relation.person_1_id %>
+</p>
+<p>
+  <strong><%= PersonPersonRelation.human_attribute_name 'person_2_id' %></strong>:
+  <%= @person_person_relation.person_2_id %>
+</p>
+<p>
+  <strong><%= PersonPersonRelation.human_attribute_name 'link_type_id' %></strong>:
+  <%= @person_person_relation.link_type_id %>
+</p>
+<p>
+  <strong><%= PersonPersonRelation.human_attribute_name 'since_date' %></strong>:
+  <%= @person_person_relation.since_date %>
+</p>
+<p>
+  <strong><%= PersonPersonRelation.human_attribute_name 'until_date' %></strong>:
+  <%= @person_person_relation.until_date %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_person_person_relation_path(@person_person_relation) if can? :update, @person_person_relation %> |
+  <%= link_to t('label.list'), person_person_relations_path %>
+</div>

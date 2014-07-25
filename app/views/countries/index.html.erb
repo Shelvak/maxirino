@@ -1,0 +1,32 @@
+<% if @countries.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Country.human_attribute_name 'name' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @countries.each do |country| %>
+        <tr>
+          <td><%= country.name %></td>
+          <td><%= link_to_show country %></td>
+          <td><%= link_to_edit edit_country_path(country) if can? :update, country %></td>
+          <td><%= link_to_destroy country if can? :destroy, country %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @countries %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.countries.new', default: :'label.new'),
+    new_country_path, class: 'btn btn-primary'
+  ) if can? :create, Country %>
+</div>

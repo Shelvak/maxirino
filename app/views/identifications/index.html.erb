@@ -1,0 +1,36 @@
+<% if @identifications.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Identification.human_attribute_name 'number' %></th>
+        <th><%= Identification.human_attribute_name 'person_id' %></th>
+        <th><%= Identification.human_attribute_name 'identification_type_id' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @identifications.each do |identification| %>
+        <tr>
+          <td><%= identification.number %></td>
+          <td><%= identification.person_id %></td>
+          <td><%= identification.identification_type_id %></td>
+          <td><%= link_to_show identification %></td>
+          <td><%= link_to_edit edit_identification_path(identification) if can? :update, identification %></td>
+          <td><%= link_to_destroy identification if can? :destroy, identification %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @identifications %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.identifications.new', default: :'label.new'),
+    new_identification_path, class: 'btn btn-primary'
+  ) if can? :create, Identification %>
+</div>

@@ -1,0 +1,36 @@
+<% if @phones.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Phone.human_attribute_name 'person_id' %></th>
+        <th><%= Phone.human_attribute_name 'phone' %></th>
+        <th><%= Phone.human_attribute_name 'details' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @phones.each do |phone| %>
+        <tr>
+          <td><%= phone.person_id %></td>
+          <td><%= phone.phone %></td>
+          <td><%= phone.details %></td>
+          <td><%= link_to_show phone %></td>
+          <td><%= link_to_edit edit_phone_path(phone) if can? :update, phone %></td>
+          <td><%= link_to_destroy phone if can? :destroy, phone %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @phones %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.phones.new', default: :'label.new'),
+    new_phone_path, class: 'btn btn-primary'
+  ) if can? :create, Phone %>
+</div>

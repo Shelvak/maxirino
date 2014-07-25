@@ -1,0 +1,17 @@
+<%= simple_form_for(@city) do |f| %>
+  <%= render 'shared/error_explanation', f: f %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :name %>
+        <%= f.input :province_id %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions well well-sm">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

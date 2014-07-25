@@ -1,0 +1,19 @@
+<h2><%= @identification %></h2>
+
+<p>
+  <strong><%= Identification.human_attribute_name 'number' %></strong>:
+  <%= @identification.number %>
+</p>
+<p>
+  <strong><%= Identification.human_attribute_name 'person_id' %></strong>:
+  <%= @identification.person_id %>
+</p>
+<p>
+  <strong><%= Identification.human_attribute_name 'identification_type_id' %></strong>:
+  <%= @identification.identification_type_id %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_identification_path(@identification) if can? :update, @identification %> |
+  <%= link_to t('label.list'), identifications_path %>
+</div>

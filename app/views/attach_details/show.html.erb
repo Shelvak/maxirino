@@ -1,0 +1,19 @@
+<h2><%= @attach_detail %></h2>
+
+<p>
+  <strong><%= AttachDetail.human_attribute_name 'from' %></strong>:
+  <%= @attach_detail.from %>
+</p>
+<p>
+  <strong><%= AttachDetail.human_attribute_name 'details' %></strong>:
+  <%= @attach_detail.details %>
+</p>
+<p>
+  <strong><%= AttachDetail.human_attribute_name 'attach_id' %></strong>:
+  <%= @attach_detail.attach_id %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_attach_detail_path(@attach_detail) if can? :update, @attach_detail %> |
+  <%= link_to t('label.list'), attach_details_path %>
+</div>

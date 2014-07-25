@@ -1,0 +1,11 @@
+<h2><%= @person_quadrant_link_kind %></h2>
+
+<p>
+  <strong><%= PersonQuadrantLinkKind.human_attribute_name 'name' %></strong>:
+  <%= @person_quadrant_link_kind.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_person_quadrant_link_kind_path(@person_quadrant_link_kind) if can? :update, @person_quadrant_link_kind %> |
+  <%= link_to t('label.list'), person_quadrant_link_kinds_path %>
+</div>

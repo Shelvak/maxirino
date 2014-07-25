@@ -1,0 +1,32 @@
+<% if @attach_types.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= AttachType.human_attribute_name 'name' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @attach_types.each do |attach_type| %>
+        <tr>
+          <td><%= attach_type.name %></td>
+          <td><%= link_to_show attach_type %></td>
+          <td><%= link_to_edit edit_attach_type_path(attach_type) if can? :update, attach_type %></td>
+          <td><%= link_to_destroy attach_type if can? :destroy, attach_type %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @attach_types %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.attach_types.new', default: :'label.new'),
+    new_attach_type_path, class: 'btn btn-primary'
+  ) if can? :create, AttachType %>
+</div>

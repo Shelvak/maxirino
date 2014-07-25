@@ -1,0 +1,2 @@
+module PersonQuadrantLinkKindsHelper
+end

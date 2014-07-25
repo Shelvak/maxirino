@@ -1,0 +1,39 @@
+<h2><%= @person_address %></h2>
+
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'person_id' %></strong>:
+  <%= @person_address.person_id %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'address_id' %></strong>:
+  <%= @person_address.address_id %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'country_id' %></strong>:
+  <%= @person_address.country_id %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'province_id' %></strong>:
+  <%= @person_address.province_id %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'city_id' %></strong>:
+  <%= @person_address.city_id %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'district_id' %></strong>:
+  <%= @person_address.district_id %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'street_name' %></strong>:
+  <%= @person_address.street_name %>
+</p>
+<p>
+  <strong><%= PersonAddress.human_attribute_name 'street_number' %></strong>:
+  <%= @person_address.street_number %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_person_address_path(@person_address) if can? :update, @person_address %> |
+  <%= link_to t('label.list'), person_addresses_path %>
+</div>

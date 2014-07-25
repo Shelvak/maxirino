@@ -1,0 +1,23 @@
+<h2><%= @address_sector_relation %></h2>
+
+<p>
+  <strong><%= AddressSectorRelation.human_attribute_name 'address_id' %></strong>:
+  <%= @address_sector_relation.address_id %>
+</p>
+<p>
+  <strong><%= AddressSectorRelation.human_attribute_name 'sector_id' %></strong>:
+  <%= @address_sector_relation.sector_id %>
+</p>
+<p>
+  <strong><%= AddressSectorRelation.human_attribute_name 'percentage' %></strong>:
+  <%= @address_sector_relation.percentage %>
+</p>
+<p>
+  <strong><%= AddressSectorRelation.human_attribute_name 'detail' %></strong>:
+  <%= @address_sector_relation.detail %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_address_sector_relation_path(@address_sector_relation) if can? :update, @address_sector_relation %> |
+  <%= link_to t('label.list'), address_sector_relations_path %>
+</div>

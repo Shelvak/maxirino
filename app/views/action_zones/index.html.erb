@@ -1,0 +1,32 @@
+<% if @action_zones.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= ActionZone.human_attribute_name 'name' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @action_zones.each do |action_zone| %>
+        <tr>
+          <td><%= action_zone.name %></td>
+          <td><%= link_to_show action_zone %></td>
+          <td><%= link_to_edit edit_action_zone_path(action_zone) if can? :update, action_zone %></td>
+          <td><%= link_to_destroy action_zone if can? :destroy, action_zone %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @action_zones %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.action_zones.new', default: :'label.new'),
+    new_action_zone_path, class: 'btn btn-primary'
+  ) if can? :create, ActionZone %>
+</div>

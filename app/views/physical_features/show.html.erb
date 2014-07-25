@@ -1,0 +1,11 @@
+<h2><%= @physical_feature %></h2>
+
+<p>
+  <strong><%= PhysicalFeature.human_attribute_name 'name' %></strong>:
+  <%= @physical_feature.name %>
+</p>
+
+<div class="form-actions well well-sm">
+  <%= link_to t('label.edit'), edit_physical_feature_path(@physical_feature) if can? :update, @physical_feature %> |
+  <%= link_to t('label.list'), physical_features_path %>
+</div>

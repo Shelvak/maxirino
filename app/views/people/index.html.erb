@@ -1,0 +1,48 @@
+<% if @people.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Person.human_attribute_name 'first_name' %></th>
+        <th><%= Person.human_attribute_name 'last_name' %></th>
+        <th><%= Person.human_attribute_name 'birthday' %></th>
+        <th><%= Person.human_attribute_name 'father' %></th>
+        <th><%= Person.human_attribute_name 'mother' %></th>
+        <th><%= Person.human_attribute_name 'notes' %></th>
+        <th><%= Person.human_attribute_name 'record' %></th>
+        <th><%= Person.human_attribute_name 'sex' %></th>
+        <th><%= Person.human_attribute_name 'alias' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @people.each do |person| %>
+        <tr>
+          <td><%= person.first_name %></td>
+          <td><%= person.last_name %></td>
+          <td><%= person.birthday %></td>
+          <td><%= person.father %></td>
+          <td><%= person.mother %></td>
+          <td><%= person.notes %></td>
+          <td><%= person.record %></td>
+          <td><%= person.sex %></td>
+          <td><%= person.alias %></td>
+          <td><%= link_to_show person %></td>
+          <td><%= link_to_edit edit_person_path(person) if can? :update, person %></td>
+          <td><%= link_to_destroy person if can? :destroy, person %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @people %>
+<% end %>
+
+<div class="form-actions well well-sm">
+  <%= link_to(
+    t('view.people.new', default: :'label.new'),
+    new_person_path, class: 'btn btn-primary'
+  ) if can? :create, Person %>
+</div>
