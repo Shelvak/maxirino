@@ -19,6 +19,8 @@ class Person < ActiveRecord::Base
   has_many :physical_feature, through: :person_physical_features
   has_many :people
 
+  validates :first_name, :alias, length: { maximum: 100 }
+  validates :last_name, :father, :mother, length: { maximum: 60 }
 
   def sex_to_s
     I18n.t('.' + SEX[self.sex])

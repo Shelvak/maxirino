@@ -1,4 +1,4 @@
 Fabricator(:address_zone_relation) do
-  address_id { 0 }
-  zone_id { 0 }
+  address_id  { Fabricate(:address).id }
+  zone_id     { Fabricate(:zone).id }
 end

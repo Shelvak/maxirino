@@ -14,11 +14,11 @@ class ActionZoneTest < ActiveSupport::TestCase
   test 'update' do
     assert_difference 'PaperTrail::Version.count' do
       assert_no_difference 'ActionZone.count' do
-        @action_zone.update!(attr: 'Updated')
+        @action_zone.update!(name: 'Updated')
       end
     end
 
-    assert_equal 'Updated', @action_zone.reload.attr
+    assert_equal 'Updated', @action_zone.reload.name
   end
 
   test 'destroy' do
@@ -27,20 +27,20 @@ class ActionZoneTest < ActiveSupport::TestCase
     end
   end
 
-  test 'validates blank attributes' do
-    @action_zone.attr = ''
+  test 'validates blank nameibutes' do
+    @action_zone.name = ''
 
     assert @action_zone.invalid?
     assert_equal 1, @action_zone.errors.size
-    assert_equal_messages @action_zone, :attr, :blank
+    assert_equal_messages @action_zone, :name, :blank
   end
 
-  test 'validates unique attributes' do
+  test 'validates unique nameibutes' do
     new_action_zone = Fabricate(:action_zone)
-    @action_zone.attr = new_action_zone.attr
+    @action_zone.name = new_action_zone.name
 
     assert @action_zone.invalid?
     assert_equal 1, @action_zone.errors.size
-    assert_equal_messages @action_zone, :attr, :taken
+    assert_equal_messages @action_zone, :name, :taken
   end
 end

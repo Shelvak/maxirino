@@ -49,8 +49,8 @@ class PhonesControllerTest < ActionController::TestCase
   end
 
   test "should update phone" do
-    put :update, id: @phone, 
-      phone: Fabricate.attributes_for(:phone, attr: 'value')
+    put :update, id: @phone,
+      phone: Fabricate.attributes_for(:phone, number: 'value')
     assert_redirected_to phone_url(assigns(:phone))
   end
 

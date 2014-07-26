@@ -32,6 +32,7 @@ gem 'kaminari-bootstrap'
 
 group :development do
   gem 'thin'
+  gem 'better_errors'
 end
 
 group :test do
@@ -40,4 +41,10 @@ group :test do
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
+end
+
+group :test, :development do
+  gem 'interactive_editor'
+  gem 'pry-nav'
+  gem 'awesome_print'
 end

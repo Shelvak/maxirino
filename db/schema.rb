@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "action_zone_person_relations", id: false, force: true do |t|
+  create_table "action_zone_person_relations", force: true do |t|
     t.integer  "person_id"
     t.integer  "action_zone_id"
     t.datetime "created_at"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "address_conceptualization_relations", id: false, force: true do |t|
+  create_table "address_conceptualization_relations", force: true do |t|
     t.integer  "address_id"
     t.integer  "conceptualization_id"
     t.datetime "created_at"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "address_person_relations", id: false, force: true do |t|
+  create_table "address_person_relations", force: true do |t|
     t.integer  "person_id"
     t.integer  "address_id"
     t.integer  "address_link_kind_id"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "address_zone_relations", id: false, force: true do |t|
+  create_table "address_zone_relations", force: true do |t|
     t.integer  "address_id"
     t.integer  "zone_id"
     t.datetime "created_at"
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 20140725202345) do
 
   create_table "addresses", force: true do |t|
     t.integer  "address_type_id"
-    t.string   "number",          limit: 40
-    t.string   "between",         limit: 30
-    t.string   "street",          limit: 20
+    t.string   "number"
+    t.string   "between"
+    t.string   "street"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "conceptualization_person_relations", id: false, force: true do |t|
+  create_table "conceptualization_person_relations", force: true do |t|
     t.integer  "person_id"
     t.integer  "conceptualization_id"
     t.datetime "created_at"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "investigation_address_relations", id: false, force: true do |t|
+  create_table "investigation_address_relations", force: true do |t|
     t.integer  "investigation_id"
     t.integer  "address_id"
     t.datetime "created_at"
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "investigation_person_relations", id: false, force: true do |t|
+  create_table "investigation_person_relations", force: true do |t|
     t.integer  "investigation_id"
     t.integer  "person_id"
     t.datetime "created_at"
@@ -197,8 +197,8 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.string   "father",     limit: 60
     t.string   "mother",     limit: 60
     t.text     "notes"
-    t.boolean  "sex"
-    t.string   "alias",      limit: 510
+    t.boolean  "sex",                    default: false
+    t.string   "alias",      limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -251,7 +251,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
 
   create_table "phones", force: true do |t|
     t.integer  "person_id"
-    t.string   "phone",      limit: 36
+    t.string   "number",     limit: 36
     t.string   "details",    limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -65,6 +65,6 @@ class PersonPersonRelationsController < ApplicationController
     end
 
     def person_person_relation_params
-      params.require(:person_person_relation).permit(:person_1_id, :person_2_id, :link_type_id, :since_date, :until_date)
+      params.require(:person_person_relation).permit(:person_1_id, :person_2_id, :link_kind_id, :since_date, :until_date)
     end
 end

@@ -65,6 +65,6 @@ class PhonesController < ApplicationController
     end
 
     def phone_params
-      params.require(:phone).permit(:person_id, :phone, :details)
+      params.require(:phone).permit(:person_id, :number, :details)
     end
 end

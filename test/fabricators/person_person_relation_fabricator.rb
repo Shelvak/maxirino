@@ -1,7 +1,7 @@
 Fabricator(:person_person_relation) do
-  person_1_id { 0 }
-  person_2_id { 0 }
-  link_type_id { 0 }
-  since_date { Date.today }
-  until_date { Date.today }
+  person_1_id     { Fabricate(:person).id }
+  person_2_id     { Fabricate(:person).id }
+  link_kind_id    { Fabricate(:people_relation_kind).id }
+  since_date      { Date.today }
+  until_date      { Date.today }
 end

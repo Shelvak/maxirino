@@ -65,6 +65,6 @@ class PersonAddressesController < ApplicationController
     end
 
     def person_address_params
-      params.require(:person_address).permit(:person_id, :address_id, :country_id, :province_id, :city_id, :district_id, :street_name, :street_number)
+      params.require(:person_address).permit(:person_id, :address_id, :country_id, :province_id, :city_id, :zone_id, :street_name, :street_number)
     end
 end

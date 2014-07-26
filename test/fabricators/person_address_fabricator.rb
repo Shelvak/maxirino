@@ -1,10 +1,10 @@
 Fabricator(:person_address) do
-  person_id { 0 }
-  address_id { 0 }
-  country_id { 0 }
-  province_id { 0 }
-  city_id { 0 }
-  district_id { 0 }
-  street_name { Faker::Name.name }
-  street_number { Faker::Lorem.sentence }
+  person_id       { Fabricate(:person).id }
+  city_id         { Fabricate(:city).id }
+  province_id     { |attrs| City.find(attrs[:city_id]).province_id }
+  country_id      { |attrs| Province.find(attrs[:province_id]).country_id }
+  zone_id         { Fabricate(:zone).id }
+  address_id      { Fabricate(:address).id }
+  street_name     { Faker::Name.name }
+  street_number   { Faker::Lorem.sentence }
 end

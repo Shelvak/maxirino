@@ -1,4 +1,4 @@
 Fabricator(:investigation_person_relation) do
-  investigation_id { 0 }
-  person_id { 0 }
+  investigation_id  { Fabricate(:investigation).id }
+  person_id         { Fabricate(:person).id }
 end

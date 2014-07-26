@@ -1,7 +1,7 @@
 Fabricator(:address) do
-  address_type_id { 0 }
-  number { Faker::Lorem.sentence }
-  between { Faker::Lorem.sentence }
-  street { Faker::Lorem.sentence }
-  notes { Faker::Lorem.paragraph }
+  address_type_id { Fabricate(:address_link_kind).id }
+  number          { Faker::Name.name[0..100] }
+  between         { Faker::Name.name[0..100] }
+  street          { Faker::Name.name[0..100] }
+  notes           { Faker::Lorem.paragraph }
 end

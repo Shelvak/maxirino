@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th><%= Phone.human_attribute_name 'person_id' %></th>
-        <th><%= Phone.human_attribute_name 'phone' %></th>
+        <th><%= Phone.human_attribute_name 'number' %></th>
         <th><%= Phone.human_attribute_name 'details' %></th>
         <th colspan="3"></th>
       </tr>
@@ -15,7 +15,7 @@
       <% @phones.each do |phone| %>
         <tr>
           <td><%= phone.person_id %></td>
-          <td><%= phone.phone %></td>
+          <td><%= phone.number %></td>
           <td><%= phone.details %></td>
           <td><%= link_to_show phone %></td>
           <td><%= link_to_edit edit_phone_path(phone) if can? :update, phone %></td>

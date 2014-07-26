@@ -1,4 +1,4 @@
 Fabricator(:person_physical_feature) do
-  person_id { 0 }
-  physical_feature_id { 0 }
+  person_id           { Fabricate(:person).id }
+  physical_feature_id { Fabricate(:physical_feature).id }
 end

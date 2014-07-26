@@ -1,5 +1,5 @@
 Fabricator(:phone) do
-  person_id { 0 }
-  phone { Faker::Lorem.sentence }
-  details { Faker::Lorem.sentence }
+  person_id { Fabricate(:person).id }
+  number    { Faker::PhoneNumber.phone_number }
+  details   { Faker::Lorem.sentence }
 end

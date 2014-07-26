@@ -14,11 +14,11 @@ class AddressLinkKindTest < ActiveSupport::TestCase
   test 'update' do
     assert_difference 'PaperTrail::Version.count' do
       assert_no_difference 'AddressLinkKind.count' do
-        @address_link_kind.update!(attr: 'Updated')
+        @address_link_kind.update!(name: 'Updated')
       end
     end
 
-    assert_equal 'Updated', @address_link_kind.reload.attr
+    assert_equal 'Updated', @address_link_kind.reload.name
   end
 
   test 'destroy' do
@@ -27,20 +27,20 @@ class AddressLinkKindTest < ActiveSupport::TestCase
     end
   end
 
-  test 'validates blank attributes' do
-    @address_link_kind.attr = ''
+  test 'validates blank nameibutes' do
+    @address_link_kind.name = ''
 
     assert @address_link_kind.invalid?
     assert_equal 1, @address_link_kind.errors.size
-    assert_equal_messages @address_link_kind, :attr, :blank
+    assert_equal_messages @address_link_kind, :name, :blank
   end
 
-  test 'validates unique attributes' do
+  test 'validates unique nameibutes' do
     new_address_link_kind = Fabricate(:address_link_kind)
-    @address_link_kind.attr = new_address_link_kind.attr
+    @address_link_kind.name = new_address_link_kind.name
 
     assert @address_link_kind.invalid?
     assert_equal 1, @address_link_kind.errors.size
-    assert_equal_messages @address_link_kind, :attr, :taken
+    assert_equal_messages @address_link_kind, :name, :taken
   end
 end
