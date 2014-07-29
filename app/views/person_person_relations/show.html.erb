@@ -21,7 +21,7 @@
   <%= @person_person_relation.until_date %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_person_person_relation_path(@person_person_relation) if can? :update, @person_person_relation %> |
   <%= link_to t('label.list'), person_person_relations_path %>
 </div>

@@ -6,17 +6,17 @@
       <div class="col-md-6">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
-        <%= f.input :birthday %>
+        <%= f.input :birthday, as: :date_picker %>
         <%= f.input :father %>
         <%= f.input :mother %>
         <%= f.input :notes %>
-        <%= f.input :sex %>
+        <%= person_sex_input(f) %>
         <%= f.input :alias %>
       </div>
     </div>
   </div>
 
-  <div class="form-actions well well-sm">
+  <div class="form-actions">
     <div class="pull-right"><%= yield :form_actions %></div>
     <%= f.button :submit, class: 'btn-primary' %>
   </div>

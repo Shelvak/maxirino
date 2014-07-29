@@ -4,7 +4,6 @@ class CreateAttaches < ActiveRecord::Migration
       t.integer :attach_type_id
       t.string :file
       t.string :title
-      t.integer :attach_detail_id
       t.integer :person_id
 
       t.timestamps

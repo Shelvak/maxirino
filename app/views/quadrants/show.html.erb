@@ -5,7 +5,7 @@
   <%= @quadrant.name %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_quadrant_path(@quadrant) if can? :update, @quadrant %> |
   <%= link_to t('label.list'), quadrants_path %>
 </div>

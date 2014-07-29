@@ -9,7 +9,7 @@
   <%= @town.city_id %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_town_path(@town) if can? :update, @town %> |
   <%= link_to t('label.list'), towns_path %>
 </div>

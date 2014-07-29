@@ -65,6 +65,6 @@ class AttachesController < ApplicationController
     end
 
     def attach_params
-      params.require(:attach).permit(:attach_type_id, :file, :title, :attach_detail_id, :person_id)
+      params.require(:attach).permit(:attach_type_id, :file, :title, :person_id)
     end
 end

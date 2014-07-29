@@ -1,7 +1,7 @@
 class CreateInvestigations < ActiveRecord::Migration
   def change
     create_table :investigations do |t|
-      t.integer :investigation_status_id
+      t.integer :status_id
       t.integer :category_id
       t.date :start_date
       t.date :end_date

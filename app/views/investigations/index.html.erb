@@ -4,7 +4,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th><%= Investigation.human_attribute_name 'investigation_status_id' %></th>
+        <th><%= Investigation.human_attribute_name 'status_id' %></th>
         <th><%= Investigation.human_attribute_name 'category_id' %></th>
         <th><%= Investigation.human_attribute_name 'start_date' %></th>
         <th><%= Investigation.human_attribute_name 'end_date' %></th>
@@ -17,7 +17,7 @@
     <tbody>
       <% @investigations.each do |investigation| %>
         <tr>
-          <td><%= investigation.investigation_status_id %></td>
+          <td><%= investigation.status_id %></td>
           <td><%= investigation.category_id %></td>
           <td><%= investigation.start_date %></td>
           <td><%= investigation.end_date %></td>
@@ -34,7 +34,7 @@
   <%= paginate @investigations %>
 <% end %>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to(
     t('view.investigations.new', default: :'label.new'),
     new_investigation_path, class: 'btn btn-primary'

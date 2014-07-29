@@ -5,7 +5,7 @@
   <%= @attach_type.name %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_attach_type_path(@attach_type) if can? :update, @attach_type %> |
   <%= link_to t('label.list'), attach_types_path %>
 </div>

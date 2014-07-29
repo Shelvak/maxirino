@@ -33,7 +33,7 @@
   <%= @person_address.street_number %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_person_address_path(@person_address) if can? :update, @person_address %> |
   <%= link_to t('label.list'), person_addresses_path %>
 </div>

@@ -24,7 +24,7 @@
   <%= paginate @investigation_statuses %>
 <% end %>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to(
     t('view.investigation_statuses.new', default: :'label.new'),
     new_investigation_status_path, class: 'btn btn-primary'

@@ -13,15 +13,15 @@
   <%= @attach.title %>
 </p>
 <p>
-  <strong><%= Attach.human_attribute_name 'attach_detail_id' %></strong>:
-  <%= @attach.attach_detail_id %>
+  <strong><%#= Attach.human_attribute_name 'attach_detail_id' %></strong>:
+  <%# detalles = @attach.attach_detail_id %>
 </p>
 <p>
   <strong><%= Attach.human_attribute_name 'person_id' %></strong>:
   <%= @attach.person_id %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_attach_path(@attach) if can? :update, @attach %> |
   <%= link_to t('label.list'), attaches_path %>
 </div>

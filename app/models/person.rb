@@ -23,6 +23,6 @@ class Person < ActiveRecord::Base
   validates :last_name, :father, :mother, length: { maximum: 60 }
 
   def sex_to_s
-    I18n.t('.' + SEX[self.sex])
+    I18n.t('people.sex.' + SEX[self.sex])
   end
 end

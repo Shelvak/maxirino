@@ -65,6 +65,6 @@ class InvestigationsController < ApplicationController
     end
 
     def investigation_params
-      params.require(:investigation).permit(:investigation_status_id, :category_id, :start_date, :end_date, :title, :detail)
+      params.require(:investigation).permit(:status_id, :category_id, :start_date, :end_date, :title, :detail)
     end
 end

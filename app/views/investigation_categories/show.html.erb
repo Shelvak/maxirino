@@ -5,7 +5,7 @@
   <%= @investigation_category.name %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_investigation_category_path(@investigation_category) if can? :update, @investigation_category %> |
   <%= link_to t('label.list'), investigation_categories_path %>
 </div>

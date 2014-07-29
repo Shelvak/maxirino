@@ -13,7 +13,7 @@
   <%= @phone.details %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_phone_path(@phone) if can? :update, @phone %> |
   <%= link_to t('label.list'), phones_path %>
 </div>

@@ -1,4 +1,4 @@
 Fabricator(:address_conceptualization_relation) do
-  address_id            { Fabricate(:address) }
-  conceptualization_id  { Fabricate(:conceptualization) }
+  address_id            { Fabricate(:address).id }
+  conceptualization_id  { Fabricate(:conceptualization).id }
 end

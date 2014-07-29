@@ -21,7 +21,7 @@
   <%= @address.notes %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_address_path(@address) if can? :update, @address %> |
   <%= link_to t('label.list'), addresses_path %>
 </div>

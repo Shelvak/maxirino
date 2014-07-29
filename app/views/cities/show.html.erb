@@ -9,7 +9,7 @@
   <%= @city.province_id %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_city_path(@city) if can? :update, @city %> |
   <%= link_to t('label.list'), cities_path %>
 </div>

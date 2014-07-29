@@ -17,7 +17,7 @@
   <%= @address_sector_relation.detail %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_address_sector_relation_path(@address_sector_relation) if can? :update, @address_sector_relation %> |
   <%= link_to t('label.list'), address_sector_relations_path %>
 </div>

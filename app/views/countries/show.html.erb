@@ -5,7 +5,7 @@
   <%= @country.name %>
 </p>
 
-<div class="form-actions well well-sm">
+<div class="form-actions">
   <%= link_to t('label.edit'), edit_country_path(@country) if can? :update, @country %> |
   <%= link_to t('label.list'), countries_path %>
 </div>
