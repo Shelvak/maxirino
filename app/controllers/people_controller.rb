@@ -1,10 +1,11 @@
 class PeopleController < ApplicationController
   before_action :set_person, only:  [:show, :edit, :update, :destroy]
+  before_action :searchable
 
   # GET /people
   def index
     @title = t('view.people.index_title')
-    @people = Person.all.page(params[:page])
+    @people = Person.filtered_list(params[:q]).page(params[:page])
   end
 
   # GET /people/1

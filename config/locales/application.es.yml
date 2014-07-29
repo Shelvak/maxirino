@@ -1,4 +1,4 @@
-'es':
+es:
   app_name: 'Maxirino'
 
   attributes:
@@ -7,9 +7,94 @@
 
   activerecord:
     models:
+      action_zone:
+        one: 'Zona de acción'
+        other: 'Zonas de acción'
+      action_zone_person_relation: ''
+      address:
+        one: 'Dirección'
+        other: 'Direcciones'
+      address_conceptualization_relation: ''
+      address_link_kind:
+        one: 'Tipo de relación con la dirección'
+        other: 'Tipos de relación con la dirección'
+      address_person_relations: ''
+      address_sector_relation: ''
+      address_zone_relation: ''
+      attach:
+        one: 'Adjunto'
+        other: 'Adjuntos'
+      attach_detail:
+        one: 'Detalle del adjunto'
+        other: 'Detalle de los adjuntos'
+      attach_type:
+        one: 'Tipo de adjunto'
+        other: 'Tipos de adjunto'
+      city:
+        one: 'Ciudad'
+        other: 'Ciudades'
+      conceptualization:
+        one: 'Conceptuación'
+        other: 'Conceptuaciones'
+      conceptualization_person_relation: ''
+      country:
+        one: 'País'
+        other: 'Paises'
+      identification:
+        one: 'Identificación'
+        other: 'Identificaciones'
+      identification_type:
+        one: 'Tipo de indentificación'
+        other: 'Tipos de indentificación'
+      investigation:
+        one: 'Investigación'
+        other: 'Investigaciones'
+      investigation_address_relation: ''
+      investigation_category:
+        one: 'Categoría de investigación'
+        other: 'Categorías de investigaciones'
+      investigation_person_relation: ''
+      investigation_status:
+        one: 'Estado de investigación'
+        other: 'Estados de investigaciones'
+      people_relation_kind:
+        one: 'Tipo de relación entre personas'
+        other: 'Tipos de relación entre personas'
+      person:
+        one: 'Persona'
+        other: 'Personas'
+      person_address:
+        one: 'Dirección de la persona'
+        other: 'Direcciones de las personas'
+      person_person_relation: ''
+      person_physical_feature:
+        one: 'Rasgo físico'
+        other: 'Rasgos físicos'
+      person_quadrant_link_kind: ''
+      phone:
+        one: 'Teléfono'
+        other: 'Teléfonos'
+      physical_feature:
+        one: 'Rasgo físico'
+        other: 'Rasgos físicos'
+      province:
+        one: 'Provincia'
+        other: 'Provincias'
+      quadrant:
+        one: 'Cuadrante'
+        other: 'Cuadrantes'
+      sector:
+        one: 'Sector'
+        other: 'Sectores'
+      town:
+        one: 'Pueblo'
+        other: 'Pueblos'
       user:
         one: 'Usuario'
         other: 'Usuarios'
+      zone:
+        one: 'Zona'
+        other: 'Zonas'
 
     attributes:
       user:
@@ -43,7 +128,29 @@
   menu:
     actions:
       logout: 'Salir de la aplicación'
+    action_zones: 'Zonas de acción'
+    addresses: 'Direcciones'
+    attach_types: 'Tipos de adjunto'
+    cities: 'Ciudades'
+    conceptualizations: 'Conceptuaciones'
+    countries: 'Paises'
+    identifications: 'Identificaciones'
+    identification_types: 'Tipos de indentificación'
+    investigations: 'Investigaciones'
+    investigation_categories: 'Categorías de investigaciones'
+    investigation_statuses: 'Estados de investigaciones'
+    people_relation_kinds: 'Tipos de relación entre personas'
+    people: 'Personas'
+    person_addresses: 'Direcciones de las personas'
+    person_physical_features: 'Rasgos físicos'
+    phones: 'Teléfonos'
+    physical_features: 'Rasgos físicos'
+    provinces: 'Provincias'
+    quadrants: 'Cuadrantes'
+    sectors: 'Sectores'
+    towns: 'Pueblos'
     users: 'Usuarios'
+    zones: 'Zonas'
 
   messages:
     confirmation: '¿Está seguro?'
@@ -73,3 +180,18 @@
       roles:
         admin: 'Administrador'
         regular: 'Normal'
+
+    people:
+      index_title: 'Listado de personas'
+      show_title: 'Detalles de persona'
+      new_title: 'Nueva persona'
+      edit_title: 'Modificar persona'
+      correctly_created: 'Persona agregada correctamente.'
+      correctly_updated: 'Persona actualizada correctamente.'
+      stale_object_error: 'La persona no pudo ser actualizada, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ninguna persona hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nueva persona</span>'
+      new: 'Nueva persona'
+      sex:
+        male: 'Hombre'
+        female: 'Mujer'

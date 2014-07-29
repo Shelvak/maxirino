@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   include Users::Profile
 
   before_action :authenticate_user!
+  before_action :searchable
 
   check_authorization
   load_and_authorize_resource
@@ -9,7 +10,6 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @title = t 'view.users.index_title'
-    @searchable = true
     @users = @users.filtered_list(params[:q]).order(:lastname).page(params[:page])
 
     respond_to do |format|

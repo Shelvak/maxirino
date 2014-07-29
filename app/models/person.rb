@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
   has_paper_trail
+  has_magick_columns first_name: :string, last_name: :string
 
   SEX = {
     true => 'male',
@@ -23,6 +24,10 @@ class Person < ActiveRecord::Base
   validates :last_name, :father, :mother, length: { maximum: 60 }
 
   def sex_to_s
-    I18n.t('people.sex.' + SEX[self.sex])
+    I18n.t('view.people.sex.' + SEX[self.sex])
+  end
+
+  def self.filtered_list(query)
+    query.present? ? magick_search(query) : all
   end
 end

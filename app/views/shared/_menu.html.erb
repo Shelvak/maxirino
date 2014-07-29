@@ -14,8 +14,11 @@
           <%= show_menu_link(
             name: 'users', controllers: 'users', path: users_path
           ) if can?(:read, User) %>
+          <%= show_menu_link(
+            name: 'people', controllers: 'people', path: people_path
+          ) if can?(:read, User) %>
         </ul>
-        <%= render partial: 'shared/nav_search' %>
+        <%= render partial: 'shared/nav_search' if @searchable %>
         <ul class="nav navbar-nav navbar-right">
           <li>
             <%= link_to(
