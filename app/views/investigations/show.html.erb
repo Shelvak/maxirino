@@ -1,29 +1,29 @@
-<h2><%= @investigation %></h2>
+<div class="readonly-data">
+  <h2><%= @investigation.title %></h2>
 
-<p>
-  <strong><%= Investigation.human_attribute_name 'status_id' %></strong>:
-  <%= @investigation.status_id %>
-</p>
-<p>
-  <strong><%= Investigation.human_attribute_name 'category_id' %></strong>:
-  <%= @investigation.category_id %>
-</p>
-<p>
-  <strong><%= Investigation.human_attribute_name 'start_date' %></strong>:
-  <%= @investigation.start_date %>
-</p>
-<p>
-  <strong><%= Investigation.human_attribute_name 'end_date' %></strong>:
-  <%= @investigation.end_date %>
-</p>
-<p>
-  <strong><%= Investigation.human_attribute_name 'title' %></strong>:
-  <%= @investigation.title %>
-</p>
-<p>
-  <strong><%= Investigation.human_attribute_name 'detail' %></strong>:
-  <%= @investigation.detail %>
-</p>
+  <p>
+    <strong><%= Investigation.human_attribute_name 'status_id' %></strong>:
+    <%= @investigation.status %>
+  </p>
+  <p>
+    <strong><%= Investigation.human_attribute_name 'category_id' %></strong>:
+    <%= @investigation.category %>
+  </p>
+  <p>
+    <strong><%= Investigation.human_attribute_name 'start_date' %></strong>:
+    <%= l(@investigation.start_date) if @investigation.start_date %>
+  </p>
+  <p>
+    <strong><%= Investigation.human_attribute_name 'end_date' %></strong>:
+    <%= l(@investigation.end_date) if @investigation.end_date %>
+  </p>
+  <p>
+    <strong><%= Investigation.human_attribute_name 'detail' %></strong>:
+    <div class="well">
+      <%= simple_format @investigation.detail %>
+    </div>
+  </p>
+</div>
 
 <div class="form-actions">
   <%= link_to t('label.edit'), edit_investigation_path(@investigation) if can? :update, @investigation %> |

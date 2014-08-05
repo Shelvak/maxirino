@@ -9,7 +9,6 @@
         <th><%= Investigation.human_attribute_name 'start_date' %></th>
         <th><%= Investigation.human_attribute_name 'end_date' %></th>
         <th><%= Investigation.human_attribute_name 'title' %></th>
-        <th><%= Investigation.human_attribute_name 'detail' %></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,12 +16,11 @@
     <tbody>
       <% @investigations.each do |investigation| %>
         <tr>
-          <td><%= investigation.status_id %></td>
-          <td><%= investigation.category_id %></td>
-          <td><%= investigation.start_date %></td>
-          <td><%= investigation.end_date %></td>
+          <td><%= investigation.status %></td>
+          <td><%= investigation.category %></td>
+          <td><%= l(investigation.start_date) if investigation.start_date %></td>
+          <td><%= l(investigation.end_date) if investigation.end_date %></td>
           <td><%= investigation.title %></td>
-          <td><%= investigation.detail %></td>
           <td><%= link_to_show investigation %></td>
           <td><%= link_to_edit edit_investigation_path(investigation) if can? :update, investigation %></td>
           <td><%= link_to_destroy investigation if can? :destroy, investigation %></td>
@@ -35,6 +33,12 @@
 <% end %>
 
 <div class="form-actions">
+  <div class="pull-right">
+    <%= link_to t('view.investigations.category'),
+      investigation_categories_path, class: 'btn btn-default' %> |
+    <%= link_to t('view.investigations.status'),
+      investigation_statuses_path, class: 'btn btn-default'%>
+  </div>
   <%= link_to(
     t('view.investigations.new', default: :'label.new'),
     new_investigation_path, class: 'btn btn-primary'
