@@ -71,3 +71,15 @@ body[data-action="show"] {
 .readonly-data {
   margin: 0px 20px;
 }
+
+.loading_caption {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  width: 10em;
+  margin: 0em 0em 0em -5em;
+  padding: .25em 1em;
+  text-align: center;
+  line-height: 42px;
+  z-index: 1100;
+}

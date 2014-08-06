@@ -59,6 +59,15 @@ class PeopleController < ApplicationController
     redirect_to people_url, notice: t('view.people.correctly_destroyed')
   end
 
+  def autocomplete
+    @title = t('view.people.index_title')
+    @people = Person.filtered_list(params[:q]).order(last_name: :desc).limit(5)
+
+    respond_to do |format|
+      format.json { render json: @people }
+    end
+  end
+
   private
 
     def set_person

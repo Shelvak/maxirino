@@ -10,8 +10,14 @@
         <%= f.input :end_date, as: :date_picker %>
         <%= f.input :title %>
         <%= f.input :detail %>
-
-
+      </div>
+      <div class="col-md-6">
+        <h3>Gente</h3>
+        <%= link_to_add_autocomplete_fields f, :auto_name, :autocomplete_person_ids, url: autocomplete_people_path(format: :json) %>
+        <hr />
+        <h3>Direcciones
+        <%= link_to_add_autocomplete_fields f, :auto_name, :autocomplete_address_ids, url: autocomplete_people_path(format: :json) %>
+    </h3>
       </div>
     </div>
   </div>

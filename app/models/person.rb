@@ -30,4 +30,23 @@ class Person < ActiveRecord::Base
   def self.filtered_list(query)
     query.present? ? magick_search(query) : all
   end
+
+  def to_s
+    [self.first_name, self.last_name].compact.join(' ')
+  end
+
+  alias_method :label, :to_s
+
+  def informal
+    self.alias
+  end
+
+  def as_json(options = nil)
+    default_options = {
+      only: [:id],
+      methods: [:label, :informal]
+    }
+
+    super(default_options.merge(options || {}))
+  end
 end

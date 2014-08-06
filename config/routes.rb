@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   resources :people_relation_kinds
 
-  resources :people
+  resources :people do
+    get :autocomplete, on: :collection
+  end
 
   resources :investigations
 
@@ -54,13 +56,13 @@ Rails.application.routes.draw do
   resources :attach_details
 
   devise_for :users
-  
+
   resources :users do
     member do
       get :edit_profile
       patch :update_profile
     end
   end
-  
+
   root to: redirect('/users/sign_in')
 end
