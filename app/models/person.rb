@@ -23,6 +23,14 @@ class Person < ActiveRecord::Base
   validates :first_name, :alias, length: { maximum: 100 }
   validates :last_name, :father, :mother, length: { maximum: 60 }
 
+  accepts_nested_attributes_for :identification
+
+  def initialize(attrs = nil)
+    super(attrs)
+
+    self.build_identification unless self.identification
+  end
+
   def sex_to_s
     I18n.t('view.people.sex.' + SEX[self.sex])
   end
