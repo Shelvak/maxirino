@@ -12,7 +12,7 @@ class Person < ActiveRecord::Base
   has_many :address_link_kinds, through: :address_person_relations
   has_many :conceptualization_person_relations
   has_many :conceptualizations, through: :conceptualization_person_relations
-  has_one :identification
+  has_one  :identification
   has_many :investigation_person_relations
   has_many :investigations, through: :investigation_person_relations
   has_many :person_addresses
@@ -24,11 +24,15 @@ class Person < ActiveRecord::Base
   validates :last_name, :father, :mother, length: { maximum: 60 }
 
   accepts_nested_attributes_for :identification
+  accepts_nested_attributes_for :person_addresses, allow_destroy: true,
+    reject_if: -> (attrs) { attrs[:street_name].blank? && attrs[:street_number].blank? }
+
 
   def initialize(attrs = nil)
     super(attrs)
 
     self.build_identification unless self.identification
+    self.person_addresses.build unless self.person_addresses.any?
   end
 
   def sex_to_s

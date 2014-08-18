@@ -7,4 +7,6 @@ class PersonAddress < ActiveRecord::Base
   belongs_to :province
   belongs_to :city
   belongs_to :zone
+
+  attr_accessor :auto_zone_name
 end

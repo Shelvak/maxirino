@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
         <%= f.input :birthday, as: :date_picker %>
@@ -13,8 +13,34 @@
         <%= person_sex_input(f) %>
         <%= f.input :alias %>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <%= render 'identification', f: f %>
+        <hr />
+
+        <table>
+          <thead>
+            <tr>
+              <th class="col-xs-3">Calle</th>
+              <th class="col-xs-3">Numero</th>
+              <th class="col-xs-3">Zona</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= f.simple_fields_for :person_addresses do |a_f| %>
+              <%= render partial: 'person_address', locals: { a_f: a_f } %>
+            <% end %>
+          </tbody>
+        </table>
+
+        <table>
+          <tbody>
+          <tr>
+            <td colspan="3">
+              <%= link_to_add_fields '+', f, :person_addresses %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

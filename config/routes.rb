@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :people do
     get :autocomplete, on: :collection
+    get :autocomplete_for_zone, on: :collection
   end
 
   resources :investigations

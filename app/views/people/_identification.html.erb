@@ -1,4 +1,11 @@
-<%= f.simple_fields_for :identification do |sf| %>
-  <%= sf.input :number %>
-  <%= sf.input :identification_type_id %>
+<%= f.simple_fields_for :identification do |i_f| %>
+  <%= f.label :identification %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= identification_type_select_for_people(i_f) %>
+    </div>
+    <div class="col-md-8">
+      <%= i_f.input :number, label: false %>
+    </div>
+  </div>
 <% end %>

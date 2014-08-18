@@ -6,4 +6,11 @@ module PeopleHelper
 
     form.input :sex, collection: collection, prompt: false
   end
+
+  def identification_type_select_for_people(form)
+    collection = IdentificationType.all.map { |type| [type.name, type.id] }
+
+    form.input :identification_type_id, collection: collection, prompt: false,
+      label: false
+  end
 end
