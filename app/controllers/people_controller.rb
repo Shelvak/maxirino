@@ -76,6 +76,14 @@ class PeopleController < ApplicationController
     end
   end
 
+  def autocomplete_for_action_zone
+    @zones = ActionZone.filtered_list(params[:q]).order(:name).limit(5)
+
+    respond_to do |format|
+      format.json { render json: @zones }
+    end
+  end
+
   private
 
     def set_person
@@ -85,7 +93,11 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(
         :first_name, :last_name, :birthday, :father, :mother, :notes,
-        :sex, :alias, identification_attributes: [:number, :identification_type_id]
+        :sex, :alias,
+        identification_attributes: [:number, :identification_type_id],
+        person_addresses_attributes: [:street_number, :street_name, :zone_id],
+        phones_attributes: [:number, :details],
+        action_zone_person_relations_attributes: [:action_zone_id]
       )
     end
 end

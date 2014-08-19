@@ -19,6 +19,9 @@ class Person < ActiveRecord::Base
   has_many :person_physical_features
   has_many :physical_feature, through: :person_physical_features
   has_many :people
+  has_many :phones
+  has_many :action_zone_person_relations
+  has_many :action_zones, through: :action_zone_person_relations
 
   validates :first_name, :alias, length: { maximum: 100 }
   validates :last_name, :father, :mother, length: { maximum: 60 }
@@ -26,6 +29,9 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :identification
   accepts_nested_attributes_for :person_addresses, allow_destroy: true,
     reject_if: -> (attrs) { attrs[:street_name].blank? && attrs[:street_number].blank? }
+  accepts_nested_attributes_for :phones, allow_destroy: true
+    #reject_if: -> (attrs) { attrs[:street_name].blank? && attrs[:street_number].blank? }
+  accepts_nested_attributes_for :action_zone_person_relations, allow_destroy: true
 
 
   def initialize(attrs = nil)

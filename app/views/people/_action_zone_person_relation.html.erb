@@ -1,0 +1,15 @@
+<% az ||= f %>
+<% id ||= az.object_id %>
+<div class="row">
+  <%= az.input :auto_name, label: false, input_html: {
+    data: {
+      id: id,
+      autocomplete_field: true,
+      autocomplete_target: id,
+      autocomplete_url: autocomplete_for_action_zone_people_path(format: :json)
+    }
+  } %>
+  <%= az.input :action_zone_id, as: :hidden, input_html: {
+    data: { autocomplete_receptor: id }
+  } %>
+</div>

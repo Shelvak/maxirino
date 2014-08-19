@@ -22,8 +22,11 @@ Rails.application.routes.draw do
   resources :people_relation_kinds
 
   resources :people do
-    get :autocomplete, on: :collection
-    get :autocomplete_for_zone, on: :collection
+    collection do
+      get :autocomplete
+      get :autocomplete_for_zone
+      get :autocomplete_for_action_zone
+    end
   end
 
   resources :investigations

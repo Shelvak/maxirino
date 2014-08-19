@@ -36,12 +36,39 @@
           <tbody>
           <tr>
             <td colspan="3">
-              <%= link_to_add_fields '+', f, :person_addresses %>
+              <%= link_to_add_fields '+', f, :person_addresses, nil, id: f.object_id %>
             </td>
           </tr>
           </tbody>
         </table>
+
+        <hr />
+        <h3>Phones</h3>
+        <div>
+          <div class="row">
+            <div class="col-md-3">
+              Number
+            </div>
+            <div class="col-md-3">
+              Detail
+            </div>
+          </div>
+          <%= f.simple_fields_for :phones do |p_f| %>
+            <%= render 'phone', p_f: p_f %>
+          <% end %>
+
+          <%= link_to_add_fields '+', f, :phones, nil, id: f.object_id %>
+        </div>
+        <h3>Action Zones</h3>
+        <div>
+          <%= f.simple_fields_for :action_zone_person_relations do |az| %>
+            <%= render 'action_zone_person_relation', az: az %>
+          <% end %>
+
+          <%= link_to_add_fields '+', f, :action_zone_person_relations, nil, id: f.object_id %>
+        </div>
       </div>
+
     </div>
   </div>
 

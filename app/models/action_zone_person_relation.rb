@@ -3,4 +3,6 @@ class ActionZonePersonRelation < ActiveRecord::Base
 
   belongs_to :person
   belongs_to :action_zone
+
+  attr_accessor :auto_name
 end

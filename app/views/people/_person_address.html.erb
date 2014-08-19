@@ -1,5 +1,5 @@
 <% a_f ||= f %>
-<% id = a_f.object_id %>
+<% id ||= a_f.object_id %>
 <tr>
   <td class="col-xs-3">
     <%= a_f.input :street_name, label: false %>
@@ -10,11 +10,14 @@
   <td class="col-xs-3">
     <%= a_f.input :auto_zone_name, label: false, input_html: {
           data: {
+            id: id,
             autocomplete_field: true,
             autocomplete_target: id,
             autocomplete_url: autocomplete_for_zone_people_path(format: :json)
           }
     } %>
-    <%= a_f.input :zone_id, as: :hidden, data: { autocomplete_receptor: id } %>
+    <%= a_f.input :zone_id, as: :hidden, input_html: {
+      data: { autocomplete_receptor: id }
+    } %>
   </td>
 </tr>

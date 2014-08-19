@@ -1,9 +1,9 @@
 module DynamicFormHelper
   def link_to_add_fields(name, form, association, partial = nil, data = {}, locals = {})
     new_object = form.object.send(association).klass.new
-    id = new_object.object_id
+    id = data[:id] || new_object.object_id
     fields = form.fields_for(association, new_object, child_index: id) do |f|
-      render (partial || association.to_s.singularize), locals.merge(f: f, parent: form)
+      render (partial || association.to_s.singularize), locals.merge(f: f, parent: form, id: id)
     end
 
     link_to(
@@ -79,6 +79,7 @@ module DynamicFormHelper
 
     fields = form.input(field, label: false, input_html: {
       data: {
+        id: id,
         autocomplete_field: true,
         autocomplete_target: id,
         autocomplete_url: opts[:url]
