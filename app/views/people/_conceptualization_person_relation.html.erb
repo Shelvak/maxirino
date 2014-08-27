@@ -1,0 +1,15 @@
+<% c ||= f %>
+<% id ||= c.object_id %>
+<div class="row">
+  <%= c.input :auto_name, label: false, input_html: {
+    data: {
+      id: id,
+      autocomplete_field: true,
+      autocomplete_target: id,
+      autocomplete_url: autocomplete_for_conceptualization_people_path(format: :json)
+    }
+  } %>
+  <%= c.input :conceptualization_id, as: :hidden, input_html: {
+    data: { autocomplete_receptor: id }
+  } %>
+</div>

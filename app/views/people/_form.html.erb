@@ -67,6 +67,16 @@
 
           <%= link_to_add_fields '+', f, :action_zone_person_relations, nil, id: f.object_id %>
         </div>
+
+        <h3>Conceptualizacion</h3>
+        <div>
+          <% f.object.conceptualization_person_relations.build %>
+          <%= f.simple_fields_for :conceptualization_person_relations do |c| %>
+            <%= render 'conceptualization_person_relation', c: c %>
+          <% end %>
+
+          <%= link_to_add_fields '+', f, :conceptualization_person_relations, nil, id: f.object_id %>
+        </div>
       </div>
 
     </div>

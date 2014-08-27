@@ -32,6 +32,7 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :phones, allow_destroy: true
     #reject_if: -> (attrs) { attrs[:street_name].blank? && attrs[:street_number].blank? }
   accepts_nested_attributes_for :action_zone_person_relations, allow_destroy: true
+  accepts_nested_attributes_for :conceptualization_person_relations, allow_destroy: true
 
 
   def initialize(attrs = nil)

@@ -3,4 +3,6 @@ class ConceptualizationPersonRelation < ActiveRecord::Base
 
   belongs_to :person
   belongs_to :conceptualization
+
+  attr_accessor :auto_name
 end
