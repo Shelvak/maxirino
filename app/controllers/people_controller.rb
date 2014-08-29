@@ -107,7 +107,8 @@ class PeopleController < ApplicationController
         person_addresses_attributes: [:id, :street_number, :street_name, :zone_id],
         phones_attributes: [:id, :number, :details],
         action_zone_person_relations_attributes: [:id, :action_zone_id],
-        conceptualization_person_relations_attributes: [:id, :conceptualization_id]
+        conceptualization_person_relations_attributes: [:id, :conceptualization_id],
+        attaches_attributes: [:id, :file, :title]
       )
     end
 end

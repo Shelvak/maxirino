@@ -77,6 +77,15 @@
 
           <%= link_to_add_fields '+', f, :conceptualization_person_relations, nil, id: f.object_id %>
         </div>
+
+        <h3>adjuntos</h3>
+        <div>
+          <%= f.simple_fields_for :attaches do |a| %>
+            <%= render 'attach', a: a %>
+          <% end %>
+
+          <%= link_to_add_fields '+', f, :attaches %>
+        </div>
       </div>
 
     </div>

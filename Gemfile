@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'paper_trail'
 gem 'magick_columns'
 gem 'validates_timeliness'
+gem 'carrierwave'
 
 # Deploy gems
 gem 'capistrano'

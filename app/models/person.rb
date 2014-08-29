@@ -7,6 +7,7 @@ class Person < ActiveRecord::Base
     false => 'female'
   }
 
+  has_many :attaches
   has_many :address_person_relations
   has_many :addresses, through: :address_person_relations
   has_many :address_link_kinds, through: :address_person_relations
@@ -33,6 +34,7 @@ class Person < ActiveRecord::Base
     #reject_if: -> (attrs) { attrs[:street_name].blank? && attrs[:street_number].blank? }
   accepts_nested_attributes_for :action_zone_person_relations, allow_destroy: true
   accepts_nested_attributes_for :conceptualization_person_relations, allow_destroy: true
+  accepts_nested_attributes_for :attaches, allow_destroy: true
 
 
   def initialize(attrs = nil)
