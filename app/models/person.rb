@@ -79,6 +79,6 @@ class Person < ActiveRecord::Base
   end
 
   def create_leader
-    self.leaders.create!(name: self.leadership)
+    self.leaders.new(name: self.leadership)
   end
 end
