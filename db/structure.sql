@@ -749,10 +749,10 @@ CREATE TABLE person_person_relations (
 
 
 --
--- Name: person_physical_features_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: leader_person_relations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE person_physical_features_id_seq
+CREATE SEQUENCE leader_person_relations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -761,13 +761,13 @@ CREATE SEQUENCE person_physical_features_id_seq
 
 
 --
--- Name: person_physical_features; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: leader_person_relations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE person_physical_features (
-    id integer DEFAULT nextval('person_physical_features_id_seq'::regclass) NOT NULL,
+CREATE TABLE leader_person_relations (
+    id integer DEFAULT nextval('leader_person_relations_id_seq'::regclass) NOT NULL,
     person_id integer,
-    physical_feature_id integer,
+    leader_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -824,10 +824,10 @@ CREATE TABLE phones (
 
 
 --
--- Name: physical_features_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: leaders_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE physical_features_id_seq
+CREATE SEQUENCE leaders_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -836,11 +836,11 @@ CREATE SEQUENCE physical_features_id_seq
 
 
 --
--- Name: physical_features; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: leaders; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE physical_features (
-    id integer DEFAULT nextval('physical_features_id_seq'::regclass) NOT NULL,
+CREATE TABLE leaders (
+    id integer DEFAULT nextval('leaders_id_seq'::regclass) NOT NULL,
     name character varying(50) DEFAULT NULL::character varying,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -1391,19 +1391,19 @@ ALTER TABLE ONLY person_person_relations
 
 
 --
--- Name: person_physical_features_person_id_physical_feature_id_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: leader_person_relations_person_id_leader_id_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY person_physical_features
-    ADD CONSTRAINT person_physical_features_person_id_physical_feature_id_key UNIQUE (person_id, physical_feature_id);
+ALTER TABLE ONLY leader_person_relations
+    ADD CONSTRAINT leader_person_relations_person_id_leader_id_key UNIQUE (person_id, leader_id);
 
 
 --
--- Name: person_physical_features_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: leader_person_relations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY person_physical_features
-    ADD CONSTRAINT person_physical_features_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY leader_person_relations
+    ADD CONSTRAINT leader_person_relations_pkey PRIMARY KEY (id);
 
 
 --
@@ -1423,11 +1423,11 @@ ALTER TABLE ONLY phones
 
 
 --
--- Name: physical_features_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: leaders_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY physical_features
-    ADD CONSTRAINT physical_features_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY leaders
+    ADD CONSTRAINT leaders_pkey PRIMARY KEY (id);
 
 
 --

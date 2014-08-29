@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :provinces
 
-  resources :physical_features
+  resources :leaders
 
   resources :phones
 

@@ -1,0 +1,11 @@
+<h2><%= @leader %></h2>
+
+<p>
+  <strong><%= Leader.human_attribute_name 'name' %></strong>:
+  <%= @leader.name %>
+</p>
+
+<div class="form-actions">
+  <%= link_to t('label.edit'), edit_leader_path(@leader) if can? :update, @leader %> |
+  <%= link_to t('label.list'), leaders_path %>
+</div>

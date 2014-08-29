@@ -67,14 +67,14 @@ es:
         one: 'Dirección de la persona'
         other: 'Direcciones de las personas'
       person_person_relation: ''
-      person_physical_feature:
+      leader_person_relation:
         one: 'Rasgo físico'
         other: 'Rasgos físicos'
       person_quadrant_link_kind: ''
       phone:
         one: 'Teléfono'
         other: 'Teléfonos'
-      physical_feature:
+      leader:
         one: 'Rasgo físico'
         other: 'Rasgos físicos'
       province:
@@ -142,9 +142,9 @@ es:
     people_relation_kinds: 'Tipos de relación entre personas'
     people: 'Personas'
     person_addresses: 'Direcciones de las personas'
-    person_physical_features: 'Rasgos físicos'
+    leader_person_relations: 'Rasgos físicos'
     phones: 'Teléfonos'
-    physical_features: 'Rasgos físicos'
+    leaders: 'Rasgos físicos'
     provinces: 'Provincias'
     quadrants: 'Cuadrantes'
     sectors: 'Sectores'

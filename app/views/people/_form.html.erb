@@ -12,6 +12,7 @@
         <%= f.input :notes %>
         <%= person_sex_input(f) %>
         <%= f.input :alias %>
+        <%= f.input :leadership, label: 'Lider' %>
       </div>
       <div class="col-md-8">
         <%= render 'identification', f: f %>
@@ -70,7 +71,6 @@
 
         <h3>Conceptualizacion</h3>
         <div>
-          <% f.object.conceptualization_person_relations.build %>
           <%= f.simple_fields_for :conceptualization_person_relations do |c| %>
             <%= render 'conceptualization_person_relation', c: c %>
           <% end %>

@@ -234,14 +234,14 @@ ActiveRecord::Schema.define(version: 20140725202345) do
 
   add_index "person_person_relations", ["person_1_id", "person_2_id", "link_kind_id"], name: "person_person_relations_person_1_id_person_2_id_link_type_i_key", unique: true, using: :btree
 
-  create_table "person_physical_features", force: true do |t|
+  create_table "leader_person_relations", force: true do |t|
     t.integer  "person_id"
-    t.integer  "physical_feature_id"
+    t.integer  "leader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "person_physical_features", ["person_id", "physical_feature_id"], name: "person_physical_features_person_id_physical_feature_id_key", unique: true, using: :btree
+  add_index "leader_person_relations", ["person_id", "leader_id"], name: "leader_person_relations_person_id_leader_id_key", unique: true, using: :btree
 
   create_table "person_quadrant_link_kinds", force: true do |t|
     t.string   "name",       limit: 50
@@ -257,7 +257,7 @@ ActiveRecord::Schema.define(version: 20140725202345) do
     t.datetime "updated_at"
   end
 
-  create_table "physical_features", force: true do |t|
+  create_table "leaders", force: true do |t|
     t.string   "name",       limit: 50
     t.datetime "created_at"
     t.datetime "updated_at"
