@@ -27,8 +27,6 @@ class Person < ActiveRecord::Base
   validates :first_name, :alias, length: { maximum: 100 }
   validates :last_name, :father, :mother, length: { maximum: 60 }
 
-  before_save :create_leader
-
   accepts_nested_attributes_for :identification
   accepts_nested_attributes_for :person_addresses, allow_destroy: true,
     reject_if: -> (attrs) { attrs[:street_name].blank? && attrs[:street_number].blank? }
@@ -37,8 +35,7 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :action_zone_person_relations, allow_destroy: true
   accepts_nested_attributes_for :conceptualization_person_relations, allow_destroy: true
   accepts_nested_attributes_for :attaches, allow_destroy: true
-
-  attr_accessor :leadership
+  accepts_nested_attributes_for :leaders, allow_destroy: true
 
   def initialize(attrs = nil)
     super(attrs)
@@ -76,9 +73,5 @@ class Person < ActiveRecord::Base
     }
 
     super(default_options.merge(options || {}))
-  end
-
-  def create_leader
-    self.leaders.new(name: self.leadership)
   end
 end

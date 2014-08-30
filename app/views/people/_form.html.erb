@@ -12,7 +12,6 @@
         <%= f.input :notes %>
         <%= person_sex_input(f) %>
         <%= f.input :alias %>
-        <%= f.input :leadership, label: 'Lider' %>
       </div>
       <div class="col-md-8">
         <%= render 'identification', f: f %>
@@ -86,8 +85,16 @@
 
           <%= link_to_add_fields '+', f, :attaches %>
         </div>
-      </div>
+        <h3>Lider</h3>
 
+        <div>
+          <%= f.simple_fields_for :leaders do |leader| %>
+            <%= render 'leader', leader: leader %>
+          <% end %>
+
+          <%= link_to_add_fields '+', f, :leaders %>
+        </div>
+      </div>
     </div>
   </div>
 

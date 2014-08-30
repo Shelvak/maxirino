@@ -102,13 +102,14 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(
         :first_name, :last_name, :birthday, :father, :mother, :notes,
-        :sex, :alias, :leadership,
+        :sex, :alias,
         identification_attributes: [:id, :number, :identification_type_id],
         person_addresses_attributes: [:id, :street_number, :street_name, :zone_id],
         phones_attributes: [:id, :number, :details],
         action_zone_person_relations_attributes: [:id, :action_zone_id],
         conceptualization_person_relations_attributes: [:id, :conceptualization_id],
-        attaches_attributes: [:id, :file, :title]
+        attaches_attributes: [:id, :file, :title],
+        leaders_attributes: [:id, :name]
       )
     end
 end
