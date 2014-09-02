@@ -93,6 +93,16 @@ class PeopleController < ApplicationController
     end
   end
 
+
+  def autocomplete_for_leader
+    @leaders = Leader.filtered_list(params[:q]).order(:name).limit(5)
+
+    respond_to do |format|
+      format.json { render json: @leaders }
+    end
+  end
+
+
   private
 
     def set_person
@@ -108,8 +118,8 @@ class PeopleController < ApplicationController
         phones_attributes: [:id, :number, :details],
         action_zone_person_relations_attributes: [:id, :action_zone_id],
         conceptualization_person_relations_attributes: [:id, :conceptualization_id],
-        attaches_attributes: [:id, :file, :title],
-        leaders_attributes: [:id, :name]
+        attaches_attributes: [:id, :file, :title, :attach_type_id],
+        leaders_attributes: [:id, :auto_name]
       )
     end
 end

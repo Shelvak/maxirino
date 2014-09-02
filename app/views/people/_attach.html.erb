@@ -1,3 +1,12 @@
-<% a ||= f %>
-<%= a.input :title %>
-<%= a.input :file %>
+<div class="row">
+  <% a ||= f %>
+  <div class="col-md-4">
+    <%= attach_types_select_for_attaches(a) %>
+  </div>
+  <div class="col-md-4">
+    <%= a.input :title , label: false%>
+  </div>
+  <div class="col-md-4">
+    <%= a.input :file, label: false %>
+  </div>
+</div>

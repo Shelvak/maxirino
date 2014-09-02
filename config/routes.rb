@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get :autocomplete_for_zone
       get :autocomplete_for_action_zone
       get :autocomplete_for_conceptualization
+      get :autocomplete_for_leader
     end
   end
 

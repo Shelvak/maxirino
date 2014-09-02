@@ -42,6 +42,15 @@ class Person < ActiveRecord::Base
 
     self.build_identification unless self.identification
     self.person_addresses.build unless self.person_addresses.any?
+
+    self.leaders.each do |l|
+      if (leader = Leader.where(name: l.auto_name).first)
+        self.leader_person_relations.build(leader_id: leader.id)
+        l.delete
+      else
+        l.name = l.auto_name
+      end
+    end
   end
 
   def sex_to_s
